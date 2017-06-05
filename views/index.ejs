@@ -1,0 +1,55 @@
+<% include ./partials/header %>
+
+<div class="container">
+	<div class="jumbotron">
+		<h1><i class="fa fa-camera-retro" aria-hidden="true"></i> Image Gallery</h1>
+		<p>Upload and download your favorite images!</p>
+	</div>
+	<div class="row flex">
+	    <% allImages.forEach(function(image){ %>
+	        <div class="col-lg-4 col-sm-6">
+    			<div class="thumbnail">
+    				<img class="myImgs" src="<%= image.imageURL %>">
+    				<div class="caption">
+    				    <a class="btn btn-primary btn-xs" href="<%= image.imageURL %>" download>Download</a>
+        			    <form class="delete-form" action="/images/<%= image._id %>?_method=DELETE" method="POST">
+        				    <button class="btn btn-danger btn-xs">Delete</button>
+        				</form>
+        			</div>
+    			</div>
+    		</div>
+	    <% }); %>
+	</div>
+	<!--Modal-->
+	<div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
+        
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var imgs = document.getElementsByClassName("myImgs");
+        var modalImg = document.getElementById("img01");
+        for(var i=0; i<imgs.length; i++){
+            imgs[i].onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                console.log("hello");
+                console.log(modalImg.src);
+            }
+        }
+        
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() { 
+            modal.style.display = "none";
+        }
+    </script>
+</div>
+
+<% include ./partials/footer %>

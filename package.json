@@ -1,0 +1,25 @@
+{
+  "name": "image_gallery",
+  "version": "1.0.0",
+  "description": " a web app where users can upload and download their favorite images",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "image",
+    "upload",
+    "download"
+  ],
+  "author": "Michael",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.62.0",
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.10.4"
+  }
+}

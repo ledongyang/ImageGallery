@@ -1,0 +1,32 @@
+<% include ./partials/header %>
+
+<div class="container">
+    <div class="row">
+        <h1 class="form-title">Add new image:</h1>
+        <div class="image-form">
+            <form action="/images" method="POST">
+                <div class="form-group">
+                    <div id="status-info" class="alert alert-info">
+                        Please select an image file:
+                    </div>
+                    <div id="status-uploading" class="alert alert-warning hide">
+                        Please wait a few seconds... Don't submit yet!
+                    </div>
+                    <div id="status-success" class="alert alert-success hide">
+                        Successfully upload an image!
+                    </div>
+                    <input type="file" id="file-input">
+                    <br>
+                    <img style="border:1px solid gray;width:100%;"  id="preview" src="/images/default.jpg">
+                    <input type="hidden" id="image-url" name="image[imageURL]" value="/images/default.jpg">
+                </div>
+                <button class="btn btn-primary btn-block">Submit!</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--custom js for image upload to amazon s3-->
+<script src="/scripts/imageUploader.js" async defer></script>
+
+<% include ./partials/footer %>
